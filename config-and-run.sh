@@ -61,8 +61,11 @@ if [ ! -v "ETCD_PEERS" ] ; then
 fi
 
 exec /opt/etcd/bin/etcd &
+pid=$(jobs -p)
 
 # wait 5 seconds...
 sleep 5
 
 etcd-dump -f /data/config.json restore
+
+wait ${pid}
