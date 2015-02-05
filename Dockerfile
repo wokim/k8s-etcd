@@ -1,6 +1,6 @@
 # Dockerfile for running an etcd (primarily in Kubernetes)
 
-FROM ubuntu:trusty
+FROM wokim/nodejs-bower-gulp-tsd
 
 MAINTAINER Graeme Johnson <graeme@johnson-family.ca>
 
@@ -16,6 +16,9 @@ RUN \
  cp -v /tmp/etcd-v0.4.6-linux-amd64/etcd /opt/etcd/bin && \
  cp -v /tmp/etcd-v0.4.6-linux-amd64/etcdctl /opt/etcd/bin && \
  rm -rf /tmp/etcd-v0.4.6-linux-amd64
+
+RUN \
+ npm install etcd-dump -g
 
 WORKDIR /opt/etcd
 

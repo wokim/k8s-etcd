@@ -60,4 +60,9 @@ if [ ! -v "ETCD_PEERS" ] ; then
   echo "Set ETCD_PEERS=${ETCD_PEERS}"
 fi
 
-exec /opt/etcd/bin/etcd
+exec /opt/etcd/bin/etcd &
+
+# wait 5 seconds...
+sleep 5
+
+etcd-dump -f /data/config.json restore
