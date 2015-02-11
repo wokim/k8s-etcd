@@ -1,6 +1,6 @@
 # Dockerfile for running an etcd (primarily in Kubernetes)
 
-FROM wokim/nodejs-bower-gulp-tsd
+FROM dockerfile/nodejs
 
 MAINTAINER Graeme Johnson <graeme@johnson-family.ca>
 
